@@ -1,0 +1,144 @@
+.welcome {
+	overflow: hidden;
+}
+
+.welcome__bg {
+  width: 1920px;
+  position: absolute;
+  display: block;
+  height: 100%;
+}
+
+.welcome__container {
+	position: relative;
+	height: 100%;
+}
+
+.welcome__authorization {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: 180px;
+	height: 45px;
+	border: 1px solid $true-white;
+	border-radius: 20px;
+
+	&:hover {
+		@extend %hover-btn;
+	}
+
+	@include phones {
+		@include centered(x);
+		top: 30px;
+	}
+}
+
+.welcome__auth-btn {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	color: $true-white;
+	padding: 10px 30px;
+	font-weight: 500;
+}
+
+.welcome__content {
+	@include centered();
+	width: 380px;
+	height: 395px;
+	background-color: rgba(18, 38, 32, .6);
+	border-radius: 5px;
+
+	@include iphone5 {
+		width: 350px;
+	}
+}
+
+.welcome__user {
+	text-align: center;
+	padding-top: 40px;
+}
+
+.welcome_pic {
+	margin-bottom: 5px;
+}
+
+.welcome_name {
+	font-size: 28px;
+}
+
+.welcome_info {
+	color: $true-white;
+	opacity: .8;
+	margin-bottom: 30px;
+}
+
+.welcome__socials  {
+	text-align: center;
+}
+
+.welcome__socials .socials__icon {
+	fill-opacity: .5;
+}
+
+.welcome__buttons {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.welcome__button {
+	float: left;
+	height: 45px;
+	width: 33.33%;
+	background-color: $light-green;
+	border-right: 1px solid rgba(161, 186, 158, .6);
+	
+	&:hover {
+		@extend %hover-btn;
+	}
+
+	&:first-child {
+		border-bottom-left-radius: 5px;
+	}
+
+	&:last-child {
+		border-bottom-right-radius: 5px;
+		border-right: 0px solid rgba(161, 186, 158, .6);
+	}
+}
+
+.welcome__link {
+	display: block;
+	text-decoration: none;
+	color: $true-white;
+	padding: 12px;
+	text-align: center;
+	font-weight: 500;
+
+	@include iphone5 {
+		font-size: 14px;
+	}
+}
+
+.welcome__copyright {
+	position: absolute;
+	@include centered(x);
+	bottom: 45px;
+	white-space: nowrap;
+}
+
+.welcome__copyright p {
+	display: inline-block;
+	color: $true-white;
+
+	@include tablets {
+		font-size: 14px;
+	}
+
+	@include phones {
+		display: block;
+		text-align: center;
+		width: 300px;
+	}
+}

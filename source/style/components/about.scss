@@ -1,0 +1,38 @@
+.about {
+  @extend %clearfix;
+}
+
+.about__left, .about__right {
+  float: left;
+  width: 50%;
+  position: relative;
+  min-height: 650px;
+  height: 100vh;
+}
+
+.about__left {
+  background: $beige;
+}
+
+.about__left-title {
+	text-align: center;
+}
+
+.about__right {
+  background: $white;
+}
+
+.about__right-title {
+	width: 255px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 20px 0 32px;
+}
+
+.about__right-description {
+	margin: 0 40px;
+}
+
+.about__right-content {
+	margin: 0 40px;
+}

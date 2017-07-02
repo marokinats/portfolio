@@ -1,0 +1,33 @@
+
+.contacts__title {
+	margin-bottom: 30px;
+}
+
+.contacts__item {
+	margin-bottom: 15px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.contacts__icon,
+.contacts__content {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.contacts__icon {
+	margin-right: 12px;
+}
+
+.contacts__icon-pic {
+	width: 25px;
+	height: 25px;
+	fill: $subtitle-color;
+}
+
+.contacts__content {
+	font-weight: 500;
+	color: #455a64;
+}

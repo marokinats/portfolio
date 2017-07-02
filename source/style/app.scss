@@ -1,0 +1,21 @@
+//colors
+$white: #f4f5f0;
+$beige: #ebefe2;
+$dark-beige: #e1e4d7;
+$title-color: #373e42;
+$subtitle-color: #566358;
+
+$light-green: #6c9c5a;
+$dark-green: #4e8839;
+$light-grey: #566358;
+$dark-grey: #373e42;
+$true-white: #ffffff;
+
+//includes
+@import 'mixins/mixins.scss';
+@import 'layout/fonts.scss';
+@import 'layout/base.scss';
+
+@import 'components/**/*';
+
+

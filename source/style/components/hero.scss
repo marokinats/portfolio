@@ -1,0 +1,43 @@
+.hero {
+	overflow: hidden;
+}
+
+.hero__bg {
+	width: 1920px;
+	position: absolute;
+	display: block;
+	height: 100%;
+}
+
+.hero__container {
+	position: relative;
+	height: 100%;
+}
+
+.hero__socials {
+	position: absolute;
+	top: 33px;
+	left: 30px;
+}
+
+.hero__burger-menu {
+	position: absolute;
+	top: 33px;
+	right: 30px;
+}
+
+.hero__title {
+	right: 0;
+	left: 0;
+	@include centered(y);
+}
+
+.hero__user {
+	@include centered();
+	text-align: center;
+}
+
+.hero__arrow-down {
+	bottom: 50px;
+	@include centered(x);
+}

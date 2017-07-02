@@ -1,0 +1,23 @@
+.block-title {
+	font-size: 63px;
+	color: $title-color;
+	font-family: 'sansus', serif;
+	padding: 20px 50px 32px;
+	position: relative;
+	display: inline-block;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	text-transform: uppercase;
+	//margin: 0 auto;
+	text-align: center;
+
+	&:after {
+		content: "";
+		display: block;
+		@include centered(x);
+		width: 90px;
+		height: 3px;
+		background: $title-color;
+	}
+}

@@ -1,0 +1,27 @@
+// .map {
+// 	background-image: url('../img/map.png');
+// }
+
+.map__contacts {
+	@include centered();
+	width: 380px;
+	height: 310px;
+	background-color: rgba(244, 245, 240, .85);
+	padding: 37px 40px;
+}
+
+.google-map {
+	background-image: url('../img/map.png');
+	height: calc(100% - 180px);
+
+	&:after {
+	content: "";
+	display: block;
+	height: 180px;
+	}
+}
+
+.footer{
+	position: relative;
+	min-height: 180px;
+}

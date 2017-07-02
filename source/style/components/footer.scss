@@ -1,0 +1,40 @@
+.footer {
+	background-color: rgba(83, 89, 92, 0.85);
+	padding-top: 22px;
+}
+
+.footer__nav {
+	margin-bottom: 20px;
+}
+
+.footer__nav-item {
+	display: inline-block;
+	margin-right: 18px;
+}
+
+.footer__nav-link {
+	font-weight: 500;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.footer__socials {
+	margin-bottom: 50px;
+}
+
+.socials__icon_vk_footer,
+.socials__icon_github_footer {
+	fill: rgba(255, 255, 255, .5);
+}
+
+.footer__copyright {
+	background-color: rgba(128, 169, 113, 0.85);
+	height: 40px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.footer__copyright p {
+	font-weight: 300;
+	color: #ffffff;
+}

@@ -1,0 +1,26 @@
+.skills__item {
+	margin-bottom: 35px;
+}
+
+.skills__item-name {
+	font-weight: 500;
+	font-size: 28px;
+	color: $subtitle-color;
+	margin-bottom: 15px;
+}
+
+.skills-row__item {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	position: relative;
+	text-align: center;
+}
+
+.skill-row__title {
+	font-weight: 500;
+	font-size: 13px;
+	color: #4e8839;
+	position: absolute;
+	@include centered();
+}

@@ -1,37 +1,60 @@
 .reviews {
-	background-color: $white;
+	//height: 100vh;
+}
+
+.reviews__bg {
+	min-height: 100vh;
+	position: relative;
+	//min-width: 900px;
+}
+
+.reviews__bg-img {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	min-height: 100%;
+	width: 100%;
+}
+
+.reviews__container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 .reviews__title {
 	position: relative;
-	min-height: 25%;
-	padding-top: 45px;
 	width: 450px;
-	margin: 0 auto;
+	margin: auto;
 }
 
 .reviews__content {
-	min-height: calc(75% - 180px);
-
-	&:after {
-	content: "";
-	display: block;
-	height: 180px;
-	}
+	flex: 1; //Прибить footer
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
 }
 
 .reviews__feedbacks {
-	@extend %clearfix;
-	width: 800px;
-	margin: 0 auto 70px;
+	margin-bottom: 50px;
+	max-width: 770px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .reviews__feedback {
-	float: left;
-	width: 380px;
-	margin-right: 20px;
+	width: calc(100% / 2 - 20px);
 	text-align: center;
 	position: relative;
+	margin: 0 10px 20px;
+
+	@include phones {
+		width: 100%;
+	}
 }
 
 .reviews__feedback p {
@@ -51,11 +74,15 @@
 	margin-bottom: 15px;
 }
 
+.reviews__feedback-avatar {
+	display: block;
+}
+
 .reviews__feedback-text {
 	margin-bottom: 20px;
 }
 .reviews__feedback-text p {
-	color: #5d5a55;
+	color: $light-grey;
 	text-align: left;
 }
 
@@ -64,15 +91,26 @@
 }
 
 .reviews__feedback-autor p {
-	color: #4e8839;
+	color: $dark-green;
 	font-weight: 500;
 }
 
 .reviews__feedback-autor-grade {
-	color: #5d5a55;
+	color: $light-grey;
 }
 
 .reviews__form {
-	//position: absolute;
-	//@include centered();
+	margin: 0 auto 150px;
+	overflow: hidden;
+	border-radius: 5px;
+	width: 380px;
+	height: 460px;
+	position: relative;
+}
+
+.reviews__form-blur {
+	background: url('../img/review_bg.png') center no-repeat;
+	filter: blur(20px);
+	width: 100%;
+	height: 100%;
 }

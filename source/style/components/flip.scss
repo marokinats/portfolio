@@ -1,0 +1,19 @@
+.flip {
+	width: 380px;
+	height: 395px;
+	position: absolute;
+	@include centered();
+	transform-style: preserve-3d;
+	-webkit-transform-origin: 50% 50%;
+}
+
+.flip__id {
+	position: absolute;
+	backface-visibility: hidden;
+	transition: transform 1s;
+}
+
+.flip__id.flipped {
+	transform: rotateY( 180deg );
+}
+

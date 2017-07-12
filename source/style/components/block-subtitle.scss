@@ -1,6 +1,6 @@
 .block-subtitle {
 	font-size: 35px;
-	color: $subtitle-color;
+	color: $light-grey;
 	font-family: 'sansus', serif;
 	text-transform: uppercase;
 	text-align: center;
@@ -12,6 +12,6 @@
 		@include centered(x);
 		width: 90px;
 		height: 3px;
-		background: $subtitle-color;
+		background: $light-grey;
 	}
 }

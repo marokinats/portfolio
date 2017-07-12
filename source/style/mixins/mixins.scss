@@ -6,8 +6,13 @@
 	}
 }
 
-%hover-svg {
+%hover-svg-green {
 	fill: $dark-green;
+	transition: .3s all;
+}
+
+%hover-svg-white {
+	fill-opacity: 1;
 	transition: .3s all;
 }
 
@@ -15,6 +20,11 @@
 	transition: .3s all;
 	background-color: $dark-green;
 	border-color: $dark-green;
+}
+
+%hover-link {
+	transition: .3s all;
+	color: $dark-green;
 }
 
 @mixin centered($axis: 'both') {

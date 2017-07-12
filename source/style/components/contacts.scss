@@ -1,3 +1,8 @@
+.contacts {
+	display: flex;
+	flex-direction: column;
+	max-width: 380px;
+}
 
 .contacts__title {
 	margin-bottom: 30px;
@@ -9,25 +14,26 @@
 	&:last-child {
 		margin-bottom: 0;
 	}
-}
 
-.contacts__icon,
-.contacts__content {
-	display: inline-block;
-	vertical-align: middle;
+	display: flex;
+	align-items: center;
 }
 
 .contacts__icon {
 	margin-right: 12px;
+	//выравниваем иконку по центру в блоке
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .contacts__icon-pic {
 	width: 25px;
 	height: 25px;
-	fill: $subtitle-color;
+	fill: $light-green;
 }
 
 .contacts__content {
 	font-weight: 500;
-	color: #455a64;
+	color: $light-grey;
 }

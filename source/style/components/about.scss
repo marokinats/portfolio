@@ -1,25 +1,63 @@
 .about {
-  @extend %clearfix;
+	@extend %clearfix;
+}
+
+.about__left-triangle, .about__right-triangle {
+	float: left;
+	width: 50%;
+	position: relative;
+	height: 1px;
+}
+
+.about__left-triangle {
+	background-color: $beige;
+}
+
+.about__right-triangle {
+	background-color: $white;
+	@include tablets {
+		background-color: $beige;
+	}
+}
+
+.about__right-triangle .triangle_fill_white {
+	@include tablets {
+		fill: $beige;
+	}
+}
+
+.about__main-contant {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
 }
 
 .about__left, .about__right {
-  float: left;
-  width: 50%;
-  position: relative;
-  min-height: 650px;
-  height: 100vh;
+	width: 50%;
+
+	@include tablets {
+		width: 100%;
+	}
 }
 
 .about__left {
-  background: $beige;
+	background: $beige;
+	display: flex;
+	flex-direction: column;
 }
 
 .about__left-title {
 	text-align: center;
 }
 
+.about__left-content {
+	display: flex;
+}
+
 .about__right {
-  background: $white;
+	background: $white;
+	display: flex;
+	flex-direction: column;
 }
 
 .about__right-title {

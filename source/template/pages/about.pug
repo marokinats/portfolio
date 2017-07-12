@@ -12,7 +12,7 @@ block content
 					each item in ['vk', 'github', 'in']
 						li.socials__item
 							a(href="#").socials__link
-								svg(class=`socials__icon socials__icon_${item}`)
+								svg.socials__icon.socials__icon_hero
 									use(xlink:href=`./assets/img/sprite.svg#${item}`)
 			.burger-menu.hero__burger-menu
 				svg.burger-menu__icon
@@ -22,7 +22,8 @@ block content
 					svg.section-title__pic
 						use(xlink:href="./assets/img/sprite.svg#portfolio_header")
 				.user.hero__user
-					.user__pic(style="background-image: url('./assets/img/user.jpg')")
+					.user__pic
+						img(src="./assets/img/user.jpg", alt="me").user__img
 					.user__description
 						.user__name Татьяна Марокина
 						.user__info Личный сайт веб разработчика
@@ -30,68 +31,73 @@ block content
 				svg.arrow-down__pic
 					use(xlink:href="./assets/img/sprite.svg#arrow_down")
 	section.section.about
-		.about__left
-			.triangle.triangle_fill_beige.about__left-triangle
+		.about__left-triangle
+			.triangle.triangle_fill_beige
 				svg(viewbox="0 0 1000 150" preserveAspectRatio="none").triangle__svg
 					polygon(points="0,0 0,150 1000,150")
-			.about__left-title
-				+block-title('about_header', 'Обо мне')
-			.about__left-content
-				.user-about
-					.user-about__img
-						img(src="./assets/img/user.jpg", alt="me" width="443" height="390").user-about__pic
-					.user-about__title
-						.block-subtitle Кто я
-					.user-about__text.text-content
-						p Я веб разработчик из Москвы. Мне 31 год.  Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-						p Этот сайт я сделала в рамках обучения в Школе онлайн образования LOFTSCHOOL. По мере своего развития я буду постоянно пополнять контент. А пока посмотрите, как тут все здорово и красиво!
-		.about__right
-			.triangle.triangle_fill_white.about__right-triangle
+		.about__right-triangle
+			.triangle.triangle_fill_white
 				svg(viewbox="0 0 1000 150" preserveAspectRatio="none").triangle__svg
 					polygon(points="1000,0 1000,150 0,150")
-			.about__right-title
-				.block-subtitle Чем я могу быть вам полезен
-			.about__right-description.text-content
-				p На данном этапе меня больше привлекает Frontend разработка, но я также знакома и могу решать несложные задачи на Backend. Но давайте по порядку.
-			.about__right-content
-				ul.skills
-					+grades('Frontend', 'HTML5', 'CSS3', 'JavaScript')
-					+grades('Backend', 'PHP', 'mySQL', 'Node.js & npm', 'Mongo.db')
-					+grades('Workflow', 'Git', 'Gulp', 'Bower')
+		.about__main-contant
+			.about__left
+				.about__left-title
+					+block-title('about_header', 'Обо мне')
+				.about__left-content
+					.user-about
+						.user-about__img
+							img(src="./assets/img/user.jpg", alt="me" width="443" height="390").user-about__pic
+						.user-about__title
+							.block-subtitle Кто я
+						.user-about__text.text-content
+							p Я веб разработчик из Москвы. Мне 31 год.  Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+							p Этот сайт я сделала в рамках обучения в Школе онлайн образования LOFTSCHOOL. По мере своего развития я буду постоянно пополнять контент. А пока посмотрите, как тут все здорово и красиво!
+			.about__right
+				.about__right-title
+					.block-subtitle Чем я могу быть вам полезен
+				.about__right-description.text-content
+					p На данном этапе меня больше привлекает Frontend разработка, но я также знакома и могу решать несложные задачи на Backend. Но давайте по порядку.
+				.about__right-content
+					ul.skills
+						+grades('Frontend', 'HTML5', 'CSS3', 'JavaScript')
+						+grades('Backend', 'PHP', 'mySQL', 'Node.js & npm', 'Mongo.db')
+						+grades('Workflow', 'Git', 'Gulp', 'Bower')
 	section.section.map
-		.google-map
-		.map__contacts
-			.contacts
-				.contacts__title
-					.block-subtitle Контакты
-				ul.contacts__list
-					-
-						var contacts = [
-							['skype', 'pink_panter_cyk'],
-							['envelope2', 'tania.marokina@gmail.com'],
-							['phone2', '+7968 468 6763'],
-							['map_marker', 'Москва']
-						];
-					each contact in contacts
-						li.contacts__item
-							//-.contacts-row
-							.contacts__icon
-								svg.contacts__icon-pic
-									use(xlink:href=`./assets/img/sprite.svg#${contact[0]}`)
-							.contacts__content #{contact[1]}
-		footer.footer
-			.container
-				nav.footer__nav
-					ul.footer__nav-list
-						each link in ['Мои работы', 'Обо мне', 'Блог', 'Авторизация']
-							li.footer__nav-item
-								a(href="").footer__nav-link #{link}
-				.footer__socials
-					ul.socials
-						each item in ['vk', 'github', 'in']
-							li.socials__item
-								a(href="#").socials__link
-									svg(class=`socials__icon socials__icon_${item} socials__icon_${item}_footer`)
-										use(xlink:href=`./assets/img/sprite.svg#${item}`)
-			.footer__copyright
-				p &copy; Марокина Татьяна | Создано с любовью в LOFTSCHOOL | 2017
+		.wrapper.wrapper_map
+			.map__main-content
+				.google-map
+				.map__contacts
+					.contacts
+						.contacts__title
+							.block-subtitle Контакты
+						ul.contacts__list
+							-
+								var contacts = [
+									['skype', 'pink_panter_cyk'],
+									['envelope2', 'tania.marokina@gmail.com'],
+									['phone2', '+7968 468 6763'],
+									['map_marker', 'Москва']
+								];
+							each contact in contacts
+								li.contacts__item
+									//-.contacts-row
+									.contacts__icon
+										svg.contacts__icon-pic
+											use(xlink:href=`./assets/img/sprite.svg#${contact[0]}`)
+									.contacts__content #{contact[1]}
+			footer.footer
+				.container
+					nav.footer__nav
+						ul.footer__nav-list
+							each link in ['Мои работы', 'Обо мне', 'Блог', 'Авторизация']
+								li.footer__nav-item
+									a(href="").footer__nav-link #{link}
+					.footer__socials
+						ul.socials
+							each item in ['vk', 'github', 'in']
+								li.socials__item
+									a(href="#").socials__link
+										svg.socials__icon.socials__icon_footer
+											use(xlink:href=`./assets/img/sprite.svg#${item}`)
+				.footer__copyright
+					p &copy; Марокина Татьяна | Создано с любовью в LOFTSCHOOL 2017

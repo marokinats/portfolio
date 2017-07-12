@@ -1,5 +1,5 @@
 .footer {
-	background-color: rgba(83, 89, 92, 0.85);
+	background-color: rgba(86, 99, 88, .85);
 	padding-top: 22px;
 }
 
@@ -14,21 +14,27 @@
 
 .footer__nav-link {
 	font-weight: 500;
-	color: #ffffff;
+	color: rgba(255, 255, 255, .85);
 	text-decoration: none;
+	&:hover {
+		color: $true-white;
+	}
 }
 
 .footer__socials {
 	margin-bottom: 50px;
 }
 
-.socials__icon_vk_footer,
-.socials__icon_github_footer {
-	fill: rgba(255, 255, 255, .5);
+.socials__icon_footer {
+	fill-opacity: .5;
+
+	&:hover {
+		@extend %hover-svg-white;
+	}
 }
 
 .footer__copyright {
-	background-color: rgba(128, 169, 113, 0.85);
+	background-color: rgba(108, 156, 90, .85);
 	height: 40px;
 	text-align: center;
 	padding-top: 10px;
@@ -36,5 +42,5 @@
 
 .footer__copyright p {
 	font-weight: 300;
-	color: #ffffff;
+	color: $true-white;
 }

@@ -1,26 +1,45 @@
 .skills__item {
-	margin-bottom: 35px;
+	margin-bottom: 10px;
 }
 
 .skills__item-name {
+	display: block;
 	font-weight: 500;
 	font-size: 28px;
-	color: $subtitle-color;
+	color: $light-grey;
 	margin-bottom: 15px;
+
+	@include phones {
+		text-align: center;
+	}
+}
+
+.skills-row {
+	display: flex;
+	width: 100%;
+
+	@include phones {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
 }
 
 .skills-row__item {
-	display: inline-block;
-	width: 150px;
-	height: 150px;
+	display: block;
+	margin-right: 30px;
+	width: calc(100% / 4 - 30px);
 	position: relative;
 	text-align: center;
+
+	@include phones {
+		width: calc(100% / 2 - 30px);
+	}
 }
 
 .skill-row__title {
 	font-weight: 500;
 	font-size: 13px;
-	color: #4e8839;
+	color: $dark-green;
 	position: absolute;
 	@include centered();
 }

@@ -5,7 +5,7 @@ mixin block-title(icon, text)
 
 mixin grades(name, ...skills)
 		li.skills__item
-			.skills__item-name= name
+			span.skills__item-name= name
 			ul.skills-row
 				each skill in skills
 					li.skills-row__item

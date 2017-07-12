@@ -1,5 +1,23 @@
-.works, .works__content, .works__other {
+.works {
+	min-height: 100vh;
+	//height: 100%;
+}
+
+.works_wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	overflow: visible;
+}
+
+.works__header {
+	//flex: 1;
 	@extend %clearfix;
+}
+
+.works__header {
+	//height: 18%;
+	background-color: $white;
 }
 
 .works__left-triangle, .works__right-triangle {
@@ -10,94 +28,141 @@
 }
 
 .works__title {
-	min-height: 19%;
-	width: 100%;
 	text-align: center;
-	padding-top: 50px;
-	background-color: $white;
+	padding-top: 20px;
 }
 
-.works__content {
-	min-height: 80%;
+.works__main-contant {
+	//flex: 1;
+	//height: 85%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap; //Если высоты не хватает, колонки смещаются вправо
+
+	@include tablets {
+		flex-wrap: nowrap; //Если высоты не хватает, колонки не смещаются вправо
+	}
 }
 
-.works__content-left,
-.works__content-right {
-	float: left;
-	width: 50%;
-	position: relative;
+.works__desc {
 	height: 100%;
-	//min-height: 650px;
-	//height: 100vh;
-}
-
-.works__content-left {
+	width: 50%;
 	background-color: $beige;
-	padding-top: 250px;
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	@include tablets {
+		width: 100%;
+	}
 }
 
-.works__content-title {
+.works__desc-title {
 	width: 320px;
-	margin: 0 auto 25px;
+	margin-bottom: 25px;
+
+	@include tablets {
+		margin-top: 30px;
+	}
 }
 
-.works__content-description {
+.works__desc-skills {
 	font-weight: 500;
-	color: #4e8839;
-	margin: 0 auto 60px;
+	color: $dark-green;
+	margin-bottom: 60px;
 	text-transform: uppercase;
 }
 
-.works__content-btn {
+.works__desc-btn {
 	width: 212px;
 	height: 45px;
-	background-color: #4e8839;
+	background-color: $dark-green;
 	border-radius: 35px;
-	margin: 0 auto;
-	padding: 10px 10px;
-	vertical-align: middle;
 	white-space: nowrap;
+
+	@include tablets {
+		margin-bottom: 30px;
+	}
 }
 
-.works__content-btn-pic {
-	display: inline-block;
+.works__desc-btn-link {
+	text-decoration: none;
+	padding: 10px 15px;
+	display: flex;
+	align-items: center;
 }
 
-.works__content-btn-icon {
+.works__desc-btn-pic {
+	//выравниваем иконку по центру в блоке
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.works__desc-btn-icon {
 	width: 30px;
 	height: 25px;
-	fill: #ffffff;
+	fill: $true-white;
 	margin-right: 15px;
 }
 
-.works__content-btn-link {
-	text-decoration: none;
+.works__desc-btn-text {
 	font-weight: 500;
-	color: #ffffff;
+	color: $true-white;
 }
 
-.works__content-right {
+.works__display {
 	background-color: $dark-beige;
-}
-
-.works__example {
-	height: 525px;
-	width: 450px;
-	margin: 0 auto;
-	padding-top: 113px;
-}
-
-.works__another-left {
-	float: left;
 	width: 50%;
+	flex: 4;
+
+	@include tablets {
+		width: 100%;
+		order: -1;
+	}
 }
 
-.works__another-right {
-	float: right;
-	width: 50%;
+.works__display-example {
+	//height: 100%;
+	//width: 100%;
+	max-width: 100%;
+	max-height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include tablets {
+		padding: 30px 0;
+	}
 }
-.works__another-pic {
-	width: 100%;
+
+.works__display-example-pic {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.works__buttons {
+	background-color: $dark-beige;
+	flex: 1;
+	min-height: 100px;
 	height: 100%;
+	display: flex;
+}
+
+.works__buttons-link {
+	min-height: 100%;
+	flex: 1;
+
+	&_left {
+		background: url('../img/example1.png') center center no-repeat;
+		background-size: contain;
+	}
+
+	&_right {
+		background: url('../img/example1.png') center center no-repeat;
+		background-size: contain;
+	}
 }

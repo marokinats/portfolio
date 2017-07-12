@@ -1,5 +1,6 @@
 .welcome {
 	overflow: hidden;
+	height: 100vh;
 }
 
 .welcome__bg {
@@ -12,40 +13,60 @@
 .welcome__container {
 	position: relative;
 	height: 100%;
+	perspective: 800px;
 }
 
 .welcome__authorization {
 	position: absolute;
 	right: 20px;
 	top: 20px;
-	width: 180px;
-	height: 45px;
-	border: 1px solid $true-white;
-	border-radius: 20px;
-
-	&:hover {
-		@extend %hover-btn;
-	}
 
 	@include phones {
 		@include centered(x);
 		top: 30px;
+		right: auto;
 	}
 }
 
 .welcome__auth-btn {
-	display: block;
-	text-decoration: none;
+	//display: block;
+	width: 180px;
+	height: 45px;
+	border: 1px solid $true-white;
+	border-radius: 20px;
 	text-align: center;
+	font-family: 'roboto';
+	font-weight: 500;
 	color: $true-white;
 	padding: 10px 30px;
-	font-weight: 500;
+	background-color: transparent;
+	cursor: pointer;
+
+	&:hover {
+		@extend %hover-btn;
+	}
 }
 
 .welcome__content {
-	@include centered();
-	width: 380px;
-	height: 395px;
+	//@include centered();
+	//width: 380px;
+	//height: 395px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(18, 38, 32, .6);
+	border-radius: 5px;
+
+	@include iphone5 {
+		width: 350px;
+	}
+}
+
+.welcome__content-auth {
+	//@include centered();
+	//width: 380px;
+	//height: 395px;
+	width: 100%;
+	height: 100%;
 	background-color: rgba(18, 38, 32, .6);
 	border-radius: 5px;
 
@@ -59,15 +80,15 @@
 	padding-top: 40px;
 }
 
-.welcome_pic {
+.welcome__user_pic {
 	margin-bottom: 5px;
 }
 
-.welcome_name {
+.welcome__user_name {
 	font-size: 28px;
 }
 
-.welcome_info {
+.welcome__user_info {
 	color: $true-white;
 	opacity: .8;
 	margin-bottom: 30px;
@@ -79,6 +100,10 @@
 
 .welcome__socials .socials__icon {
 	fill-opacity: .5;
+
+	&:hover {
+		@extend %hover-svg-green;
+	}
 }
 
 .welcome__buttons {

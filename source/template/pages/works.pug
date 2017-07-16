@@ -14,16 +14,29 @@ block content
 							a(href="#").socials__link
 								svg.socials__icon.socials__icon_hero
 									use(xlink:href=`./assets/img/sprite.svg#${item}`)
-			.burger-menu.hero__burger-menu
-				svg.burger-menu__icon
-					use(xlink:href="./assets/img/sprite.svg#hamburger")
+			.hero__burger-menu.burger-menu
+				.burger-menu__close
+					.burger-menu__hamburger
+				.burger-menu__open.hidden Главное меню
+					.burger-menu__open-right
+					.burger-menu__open-left
+					.burger-menu__open-text
+						-
+							var navMain = [
+								{ href: "works.html", text: "Мои работы" },
+								{ href: "about.html", text: "Обо мне" },
+								{ href: "blog.html", text: "Блог" },
+								{ href: "index.html", text: "Авторизация" }
+							];
+						+list("burger-menu", navMain)
 			.hero__title
 				.section-title
 					svg.section-title__pic
 						use(xlink:href="./assets/img/sprite.svg#portfolio_header")
-				.user.hero__user
+			.user.hero__user
+				.user__block
 					.user__pic
-						img(src="./assets/img/user.jpg", alt="me").user__img
+						img(src="./assets/img/user1.jpg", alt="me").user__img
 					.user__description
 						.user__name Татьяна Марокина
 						.user__info Личный сайт веб разработчика
@@ -44,22 +57,68 @@ block content
 			.works__title
 				+block-title('works_header', 'Мои работы')
 		.works__main-contant
-			.works__desc
-				.works__desc-title
-					.block-subtitle Сайт школы онлайн образования
-				.works__desc-skills HTML, CSS, JAVASCRIPT
-				.works__desc-btn
-					a(href="#").works__desc-btn-link
-						.works__desc-btn-pic
-							svg.works__desc-btn-icon
-								use(xlink:href="./assets/img/sprite.svg#link")
-						span.works__desc-btn-text Посмотреть сайт
+			.works__description
+				+description('Сайт школы онлайн образования', 'HTML, CSS, JAVASCRIPT')
+				+description('Сайт школы йоги', 'HTML, CSS, jQuery')
+				+description('Онлайн магазин диванов', 'HTML, CSS, JAVASCRIPT, PHP')
+				+description('Поезд пассажирский', 'HTML, CSS, PhotoShop')
+				//- .works__desc
+				//- 	.works__desc-title
+				//- 		.block-subtitle Сайт школы онлайн образования
+				//- 	.works__desc-skills HTML, CSS, JAVASCRIPT
+				//- 	.works__desc-btn
+				//- 		a(href="#").works__desc-btn-link
+				//- 			.works__desc-btn-pic
+				//- 				svg.works__desc-btn-icon
+				//- 					use(xlink:href="./assets/img/sprite.svg#link")
+				//- 			span.works__desc-btn-text Посмотреть сайт
 			.works__display
-				.works__display-example
-					img(src="./assets/img/example1.png", alt="example").works__display-example-pic
+				.works__display-examples
+					ul.works__display-list
+						- var i = 1
+						- for (var i; i <= 4; i++)
+							if i == 1
+								li.works__display-item.active
+									img(src=`./assets/img/example${i}.png`, alt="example").works__display-img
+							else
+								li.works__display-item
+									img(src=`./assets/img/example${i}.png`, alt="example").works__display-img
+					img(src="./assets/img/example1.png", alt="example").works__display-example-pic.active
+					img(src="./assets/img/example2.png", alt="example").works__display-example-pic
+					img(src="./assets/img/example3.png", alt="example").works__display-example-pic
+					img(src="./assets/img/example4.png", alt="example").works__display-example-pic
 			.works__buttons
-				a(href="#", alt="example").works__buttons-link.works__buttons-link_left
-				a(href="#", alt="example").works__buttons-link.works__buttons-link_right
+				.slider.slider__first
+					.slider__display
+						ul.slider__list
+							- var i = 1
+							- for (var i; i <= 4; i++)
+									if i == 3
+										li.slider__item.active
+											img(src=`./assets/img/example${i}.png`, alt="example").slider__img
+									else
+										li.slider__item
+											img(src=`./assets/img/example${i}.png`, alt="example").slider__img
+				.slider.slider__opposite
+					.slider__display
+						ul.slider__list
+							- var i = 1
+							- for (var i; i <= 4; i++)
+								if i == 2
+									li.slider__item.active
+										img(src=`./assets/img/example${i}.png`, alt="example").slider__img
+								else
+									li.slider__item
+										img(src=`./assets/img/example${i}.png`, alt="example").slider__img
+				.slider__controls
+					.slider__control.slider__control_down
+						.slider__arrow.arrow-down
+							svg.arrow-down__pic
+								use(xlink:href="./assets/img/sprite.svg#arrow_down")
+					.slider__control.slider__control_up
+						.slider__arrow.arrow-down
+							svg.arrow-down__pic.arrow-down_rotated
+								use(xlink:href="./assets/img/sprite.svg#arrow_down")
 	section.section.reviews
 		.wrapper.reviews__bg
 			img(src="./assets/img/review_bg.png").reviews__bg-img
@@ -111,9 +170,16 @@ block content
 					.container
 						nav.footer__nav
 							ul.footer__nav-list
-								each link in ['Мои работы', 'Обо мне', 'Блог', 'Авторизация']
+								-
+									var pages = [
+										['works', 'Мои работы'],
+										['about', 'Обо мне'],
+										['blog', 'Блог'],
+										['index', 'Авторизация']
+									];
+								each page in pages
 									li.footer__nav-item
-										a(href="").footer__nav-link #{link}
+										a(href=`${page[0]}.html`).footer__nav-link #{page[1]}
 						.footer__socials
 							ul.socials
 								each item in ['vk', 'github', 'in']
@@ -123,6 +189,8 @@ block content
 												use(xlink:href=`./assets/img/sprite.svg#${item}`)
 					.footer__copyright
 						p &copy; Марокина Татьяна | Создано с любовью в LOFTSCHOOL 2017
+
+	include ./preloader
 
 
 

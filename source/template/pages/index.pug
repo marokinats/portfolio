@@ -7,13 +7,13 @@ block content
 	section.section.welcome
 		img.welcome__bg(src="./assets/img/hero.jpg")
 		.welcome__container
-			.welcome__authorization
+			.welcome__authorization-button
 				button(type="button", onclick="flip()").welcome__auth-btn Авторизоваться
 			.flip
 				.welcome__content.flip__id
 					.welcome__user.user
 						.user__pic.welcome__user_pic
-							img(src="./assets/img/user.jpg", alt="me").user__img
+							img(src="./assets/img/user1.jpg", alt="me").user__img
 						.user__description
 							.user__name.welcome__user_name Татьяна Марокина
 							.user__info.welcome__user_info Личный сайт веб разработчика
@@ -75,3 +75,5 @@ block content
 			.welcome__copyright
 				p &copy; Марокина Татьяна 
 				p | Создано с любовью в LOFTSCHOOL | 2017
+
+	include ./preloader

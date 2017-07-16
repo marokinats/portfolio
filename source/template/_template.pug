@@ -14,6 +14,29 @@ mixin grades(name, ...skills)
 							circle(r="45", cx="50%", cy="50%",  transform="rotate(-90 55 55)", class="circle__second circle-15")
 						.skill-row__title= skill
 
+mixin description(title, descSkills)
+	.works__desc
+		.works__desc-title
+			.block-subtitle= title 
+		.works__desc-skills= descSkills
+		.works__desc-btn
+			a(href="#").works__desc-btn-link
+				.works__desc-btn-pic
+					svg.works__desc-btn-icon
+						use(xlink:href="./assets/img/sprite.svg#link")
+				span.works__desc-btn-text Посмотреть сайт
+
+mixin list(className, array)
+	ul(class=`${className}__list`)
+		each object, index in array
+			- var empty = ""
+			if (index == 0)
+				li(class=`${className}__item ${className}__item_first`)
+					a(href=`${object.href}`, class=`${className}__link block-subtitle`)= object.text
+			else
+				li(class=`${className}__item`) 
+					a(href=`${object.href}`, class=`${className}__link block-subtitle`)= object.text
+
 doctype html
 html
 	head

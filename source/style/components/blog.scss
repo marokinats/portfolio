@@ -39,8 +39,19 @@
 	}
 }
 
+.blog__nav {
+	position: relative;
+	top: 0;
+	left: 0;
+	//max-width: 100%;
+}
+
 .blog__nav-item {
 	text-align: right;
+}
+
+.blog__nav-item.active .blog__nav-link {
+	color: $dark-green;
 }
 
 .blog__nav-link {
@@ -52,6 +63,10 @@
 		@extend %hover-link;
 	}
 }
+
+// .blog__nav-link.active {
+// 	color: $dark-green;
+// }
 
 .blog__articles {
 	flex: 3; //Задаем размеры

@@ -1,6 +1,10 @@
 .arrow-down {
-  width: 26px;
-  height: 16px;
+  width: 30px;
+  height: 20px;
+}
+
+.arrow-down_rotated {
+	transform: rotate(180deg);
 }
 
 .arrow-down__pic {

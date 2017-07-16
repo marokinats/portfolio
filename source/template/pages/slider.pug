@@ -1,0 +1,31 @@
+extends ../_template
+
+block variables
+	- var title = 'Slider'
+
+block content
+	.slider-container
+		.slider.slider__first
+			.slider__display
+				ul.slider__list
+					- var i = 1
+					- for (var i; i <= 4; i++)
+							if i == 1
+								li.slider__item.active
+									img(src=`./assets/img/example${i}.png`, alt="example")
+							else
+								li.slider__item
+									img(src=`./assets/img/example${i}.png`, alt="example")
+		.slider.slider__opposite
+			.slider__display
+				ul.slider__list
+					- var i = 1
+					- for (var i; i <= 4; i++)
+							if i == 1
+								li.slider__item.active
+									img(src=`./assets/img/example${i}.png`, alt="example")
+							else
+								li.slider__item
+									img(src=`./assets/img/example${i}.png`, alt="example")
+	.slider__controls
+		a.slider__controls-top(href="#") Следующий

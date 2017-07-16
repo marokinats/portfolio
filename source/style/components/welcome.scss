@@ -16,7 +16,7 @@
 	perspective: 800px;
 }
 
-.welcome__authorization {
+.welcome__authorization-button {
 	position: absolute;
 	right: 20px;
 	top: 20px;
@@ -59,6 +59,10 @@
 	@include iphone5 {
 		width: 350px;
 	}
+}
+
+.welcome__content.flipped .welcome__auth-btn {
+	display: none;
 }
 
 .welcome__content-auth {

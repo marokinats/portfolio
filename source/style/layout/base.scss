@@ -1,48 +1,46 @@
 html {
-	font-size: 16px;
+  font-size: 16px;
 
-	// @include laptop() {
-	// 	font-size: 14px;
-	// }
+  @include laptop() {
+    font-size: 14px;
+  }
 
-	// @include tablets() {
-	// 	font-size: 13px;
-	// }
-
-	// @include phones() {
-	// 	font-size: 12px;
-	// }
+  @include tablets() {
+    font-size: 12px;
+  }
 }
 
-body, html {
-	margin: 0;
-	height: 100%;
+body,
+html {
+  margin: 0;
+  height: 100%;
 }
 
 body {
-	font-family: "roboto", Arial, sans-serif;
-	font-weight: 400;
-	line-height: 1.42;
-	-webkit-font-smoothing: antialiased;
+  font-family: "roboto", Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.42;
+  -webkit-font-smoothing: antialiased;
 }
 
 .wrapper {
-	min-height: 100%;
-	position: relative;
-	overflow: hidden;
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 ul {
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
-ul li{
-	list-style: none;
+ul li {
+  list-style: none;
 }
 
-p{
-	margin: 0;
+p {
+  margin: 0;
 }
 
 h1,
@@ -50,25 +48,29 @@ h2,
 h3,
 h4,
 h5,
-h6{
-	margin: 0;
-	font-weight: normal;
+h6 {
+  margin: 0;
+  font-weight: normal;
 }
 
-table{
-	border-collapse: collapse;
-	border-spacing: 0;
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 a:focus {
-	outline: 0;
+  outline: 0;
 }
 
 .container {
-	width: 380px;
-	margin: 0 auto;
+  width: 380px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
 }

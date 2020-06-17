@@ -1,79 +1,81 @@
 extends ../_template
 
 block variables
-	- var title = 'Welcome'
+  - var title = 'Welcome'
 
 block content
-	section.section.welcome
-		img.welcome__bg(src="./assets/img/hero.jpg")
-		.welcome__container
-			.welcome__authorization-button
-				button(type="button", onclick="flip()").welcome__auth-btn Авторизоваться
-			.flip
-				.welcome__content.flip__id
-					.welcome__user.user
-						.user__pic.welcome__user_pic
-							img(src="./assets/img/user1.jpg", alt="me").user__img
-						.user__description
-							.user__name.welcome__user_name Татьяна Марокина
-							.user__info.welcome__user_info Личный сайт веб разработчика
-					.welcome__socials
-						ul.socials
-							each item in ['vk', 'github', 'in']
-								li.socials__item
-									a(href="#").socials__link
-										svg(class=`socials__icon socials__icon_${item}`)
-											use(xlink:href=`./assets/img/sprite.svg#${item}`)
-					.welcome__buttons
-						-
-							var buttons = [
-								['Мои работы', 'works'],
-								['Обо мне', 'about'],
-								['Блог', 'blog']
-							]
-						each btn in buttons
-							.welcome__button
-								a(href=`${btn[1]}.html`).welcome__link #{btn[0]}
-				.welcome__content-auth.flip__id.flipped
-					.authorization
-						.authorization__title.block-subtitle Авторизуйтесь
-						form(action="#", method="POST", enctype="multipart/form-data").authorization__form
-							.authorization__form-content
-								.authorization__form-list
-									.authorization__form-item
-										input(type="text", name="login", id="login", placeholder="Логин").authorization__form-input
-										.authorization__form-input-logo
-											svg.authorization__form-input-icon
-													use(xlink:href='./assets/img/sprite.svg#login')
-									.authorization__form-item
-										input(type="password", name="password", id="password", placeholder="Пароль").authorization__form-input
-										.authorization__form-input-logo
-											svg.authorization__form-input-icon
-												use(xlink:href='./assets/img/sprite.svg#password')
-								.authorization__form-check
-									label(for="checkbtn").authorization__form-check-label
-										input(type="checkbox", name="checkbtn", id="checkbtn").authorization__form-check-btn
-										.authorization__form-check-fake
-											svg.authorization__form-check-fake-icon
-												use(xlink:href='./assets/img/sprite.svg#check')
-										| Я человек
-								.authorization__form-question
-									span.authorization__form-question-text Вы точно не робот?
-									label(for="yes").authorization__form-radio-label
-										input(type="radio", name="yes", id="yes").authorization__form-radio-btn
-										.authorization__form-radio-fake
-										| Да
-									label(for="no").authorization__form-radio-label
-										input(type="radio", name="no", id="no").authorization__form-radio-btn
-										.authorization__form-radio-fake
-										| Не уверен
-							.authorization__buttons
-								.authorization__button
-									button(type="button", onclick="flip()").authorization__button_return На главную
-								.authorization__button
-									button(type="submit").authorization__button_submit Войти
-			.welcome__copyright
-				p &copy; Марокина Татьяна 
-				p | Создано с любовью в LOFTSCHOOL | 2017
+  section.section.welcome
+    .welcome__container
+      .welcome__authorization
+        button(type="button" onclick="flip()").welcome__authorization-btn Авторизоваться
+      .flip
+        .welcome__content.flip__id#flip-user
+          .welcome__user.user
+            .user__pic.welcome__user-pic
+              img(src="./assets/img/user1.jpg" alt="me").user__img
+            .welcome__user-description
+              .user__name.welcome__user-name Татьяна Марокина
+              .user__info.welcome__user-info Личный сайт веб разработчика
+          .welcome__socials
+            ul.socials
+              -
+                var socials = [
+                  {name:"vk", href:"https://vk.com/tania_matania"},
+                  {name: 'github', href: 'https://github.com/marokinats'}, 
+                  {name: 'in', href: '#'}
+                ]
+              each item in socials
+                li.socials__item
+                  a(href=`${item.href}` target="_blank").socials__link
+                    svg(class=`socials__icon socials__icon_${item.name}`)
+                      use(xlink:href=`./assets/img/sprite.svg#${item.name}`)
+          .welcome__buttons
+            -
+              var buttons = [
+                ['Мои работы', 'works'],
+                ['Обо мне', 'about'],
+                ['Блог', 'blog']
+              ]
+            each btn in buttons
+              a(href=`${btn[1]}.html`).welcome__button #{btn[0]}
+        .welcome__content.flip__id.flipped#flip-auth
+          .authorization
+            .authorization__title.block-subtitle Авторизуйтесь
+            form(action="#" method="POST" enctype="multipart/form-data").authorization__form
+              .authorization__form-content
+                .authorization__form-list
+                  .authorization__form-item
+                    input(type="text" name="login" id="login" placeholder="Логин").authorization__form-input
+                    .authorization__form-input-logo
+                      svg.authorization__form-input-icon
+                        use(xlink:href='./assets/img/sprite.svg#login')
+                  .authorization__form-item
+                    input(type="password" name="password" id="password" placeholder="Пароль").authorization__form-input
+                    .authorization__form-input-logo
+                      svg.authorization__form-input-icon
+                        use(xlink:href='./assets/img/sprite.svg#password')
+                .authorization__form-check
+                  label(for="checkbtn").authorization__form-check-label
+                    input(type="checkbox" name="checkbtn" id="checkbtn").authorization__form-check-btn
+                    .authorization__form-check-fake
+                      svg.authorization__form-check-fake-icon
+                        use(xlink:href='./assets/img/sprite.svg#check')
+                    | Я человек
+                .authorization__form-question
+                  span.authorization__form-question-text Вы точно не робот?
+                  label(for="yes").authorization__form-radio-label
+                    input(type="radio" name="yes" id="yes").authorization__form-radio-btn
+                    .authorization__form-radio-fake
+                    | Да
+                  label(for="no").authorization__form-radio-label
+                    input(type="radio" name="no" id="no").authorization__form-radio-btn
+                    .authorization__form-radio-fake
+                    | Не уверен
+              .authorization__buttons
+                button(type="button" onclick="flip()").authorization__button.authorization__button_return На главную
+                button(type="submit").authorization__button.authorization__button_submit Войти
+      .welcome__copyright
+        span &copy; Марокина Татьяна 
+        span | Создано с любовью в LOFTSCHOOL | 2017-2020
 
-	include ./preloader
+  include ./preloader

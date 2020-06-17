@@ -1,16 +1,21 @@
-.socials__item {
-	display: inline-block;
-	margin-right: 25px;
-}
+.socials {
+  &__item {
+    display: inline-block;
+    margin-right: 25px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 
-.socials__link {
-	display: block;
-	cursor: pointer;
-	padding: 5px;
-}
+  &__link {
+    display: block;
+    cursor: pointer;
+    padding: 5px;
+  }
 
-.socials__icon {
-	width: 35px;
-	height: 20px;
-	fill: $true-white;
+  &__icon {
+    width: 35px;
+    height: 20px;
+    fill: $true-white;
+  }
 }

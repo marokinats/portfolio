@@ -1,61 +1,54 @@
 .hero {
-	overflow: hidden;
-	height: 100vh;
-}
+  overflow: hidden;
+  height: 100vh;
+  @include laptop {
+    height: 700px;
+  }
+  @include phones {
+    height: 500px;
+  }
 
-.hero__bg {
-	//position: relative;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 1270px;
-	position: absolute;
-}
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 125%;
+    @include laptop {
+      height: 115%;
+    }
+    &-img {
+      display: block;
+      width: 180%;
+    }
+  }
 
-.hero__bg-img {
-	display: block;
-	width: 180%;
-}
+  &__title {
+    right: 0;
+    left: 0;
+    @include centered(y);
+    text-align: center;
+  }
 
-.hero__title {
-	right: 0;
-	left: 0;
-	@include centered(y);
-	text-align: center;
-}
+  &__user {
+    @include centered();
+    text-align: center;
+  }
+  &__container {
+    position: relative;
+    height: 100%;
+  }
+  &__socials {
+    position: absolute;
+    top: 33px;
+    left: 30px;
+  }
 
-.hero__user {
-	//right: 0;
-	//left: 0;
-	@include centered();
-	text-align: center;
-}
-
-.hero__container {
-	position: relative;
-	height: 100%;
-}
-
-.hero__socials {
-	position: absolute;
-	top: 33px;
-	left: 30px;
-}
-
-.socials__icon_hero {
-	&:hover {
-		@extend %hover-svg-green;
-	}
-}
-
-.hero__burger-menu {
-	//position: absolute;
-	//top: 33px;
-	//right: 30px;
-	float: right;
-}
-
-.hero__arrow-down {
-	bottom: 50px;
-	@include centered(x);
+  &__burger-menu {
+    float: right;
+  }
+  &__arrow-down {
+    bottom: 50px;
+    @include centered(x);
+  }
 }

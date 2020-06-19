@@ -1,17 +1,21 @@
 .block-subtitle {
-	font-size: 35px;
-	color: $light-grey;
-	font-family: 'sansus', serif;
-	text-transform: uppercase;
-	text-align: center;
-	position: relative;
+  font-size: 35px;
+  color: $light-grey;
+  font-family: "sansus", serif;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
 
-	&:after {
-		content: "";
-		display: block;
-		@include centered(x);
-		width: 90px;
-		height: 3px;
-		background: $light-grey;
-	}
+  &:after {
+    content: "";
+    display: block;
+    @include centered(x);
+    width: 90px;
+    height: 3px;
+    background: $light-grey;
+  }
+
+  @include phones {
+    font-size: 26px;
+  }
 }

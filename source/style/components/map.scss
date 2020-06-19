@@ -1,53 +1,28 @@
-
-// .map__contacts {
-// 	@include centered();
-// 	width: 380px;
-// 	height: 310px;
-// 	background-color: rgba(244, 245, 240, .85);
-// 	padding: 37px 40px;
-// }
-
-// .google-map {
-// 	background-image: url('../img/map.png');
-// 	height: calc(100% - 180px);
-
-// 	&:after {
-// 	content: "";
-// 	display: block;
-// 	height: 180px;
-// 	}
-// }
-
-// .footer{
-// 	position: relative;
-// 	min-height: 180px;
-// }
-
-//Используем flex
-
 .wrapper_map {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  @include phones {
+    min-height: 500px;
+  }
 }
 
 .map__main-content {
-//Контейнер растянется на всю высоту и ширину до следующего элемента
-//Прибиваем footer
-	flex: 1;
+  flex: 1;
+  position: relative;
 }
 
 .google-map {
-	background: url('../img/map.png') center center no-repeat;
-	height: 100%;
-	background-size: cover;
+  background: url("../img/map.png") center center no-repeat;
+  height: 100%;
+  background-size: cover;
 }
 
 .map__contacts {
-	@include centered();
-	//width: 380px;
-	//height: 310px;
-	background-color: rgba(255, 255, 255, .85);
-	padding: 37px 40px;
+  position: absolute;
+ @include centered();
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 35px 40px;
+  border: 1px solid $dark-grey;
+  border-radius: 20px;
 }
-

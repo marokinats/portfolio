@@ -1,23 +1,35 @@
-var parallax = (function () {
-	var bg = document.querySelector('.hero__bg');
-	var sectionTitle = document.querySelector('.section-title__pic');
-	var user = document.querySelector('.hero__user');
+//Parallax
+const parallax = (function () {
+  const bg = document.querySelector('.hero__bg');
+  const sectionTitle = document.querySelector('.section-title__pic');
+  const user = document.querySelector('.user__block');
 
-	return {
-		move: function (block, windowScroll, strafeAmount) {
-			//Рассчитаем сдвиг в процентах
-			var strafe = windowScroll / -strafeAmount + '%';
-			//Задаем переменную - стиль для блока, который будем изменять
-			var style = block.style;
+  return {
+    move: function (block, windowScroll, strafeAmount) {
 
-			style.top = strafe;
-		},
-	}
+      if (block === null) return;
+      
+      //сдвиг в процентах
+      const strafe = windowScroll / -strafeAmount + '%';
 
+      const transformString = `translate3d(0, ${strafe}, 0)`;
+      
+      block.style.transform = transformString;
+      block.style.webkitTransform = transformString;
+    },
 
+    init: function (wScroll) {
+      this.move(bg, wScroll, 45);
+      this.move(sectionTitle, wScroll, 20);
+      this.move(user, wScroll, 3);
+    }
+  }
 }());
 
+window.addEventListener('scroll', () => {
+  parallax.init(window.pageYOffset);
+});
 
-window.onscroll = function () {
-	var wScroll = window.pageYOffset;
-}
+window.addEventListener('load', () => {
+  parallax.init(window.pageYOffset);
+});

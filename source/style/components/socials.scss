@@ -1,16 +1,37 @@
-.socials__item {
-	display: inline-block;
-	margin-right: 25px;
-}
+.socials {
+  display: flex;
+  justify-content: center;
+  &__item {
+    display: inline-block;
+    margin-right: 25px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 
-.socials__link {
-	display: block;
-	cursor: pointer;
-	padding: 5px;
-}
+  &__link {
+    display: block;
+    cursor: pointer;
+    padding: 5px;
+  }
 
-.socials__icon {
-	width: 35px;
-	height: 20px;
-	fill: $true-white;
+  &__icon {
+    width: 35px;
+    height: 20px;
+    fill: $true-white;
+    fill-opacity: 0.8;
+    &:hover {
+      fill-opacity: 1;
+      fill: $true-white;
+      transition: 0.3s all;
+    }
+    &_footer {
+      fill-opacity: 0.5;
+      &:hover {
+        fill-opacity: 1;
+        fill: $dark-green;
+        transition: 0.3s all;
+      }
+    }
+  }
 }

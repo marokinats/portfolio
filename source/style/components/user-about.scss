@@ -1,21 +1,23 @@
 .user-about {
-	max-width: 445px;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-}
-
-.user-about__img {
-	width: 100%;
-	margin-bottom: 35px;
-}
-
-.user-about__pic {
-	display: block;
-	width: 100%;
-	height: auto;
-}
-
-.user-about__title {
-	margin-bottom: 30px;
+  max-width: 445px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  &__img {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+  &__pic {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  &__title {
+    margin-bottom: 30px;
+  }
+  &__text {
+    @include phones {
+      padding: 0 15px;
+    }
+  }
 }

@@ -1,45 +1,42 @@
-.skills__item {
-	margin-bottom: 10px;
-}
+.skills {
+  &__item {
+    margin-bottom: 10px;
+    &-name {
+      display: inline-block;
+      font-weight: 500;
+      font-size: 28px;
+      color: $light-grey;
+      margin-bottom: 15px;
 
-.skills__item-name {
-	display: block;
-	font-weight: 500;
-	font-size: 28px;
-	color: $light-grey;
-	margin-bottom: 15px;
-
-	@include phones {
-		text-align: center;
-	}
+      @include phones {
+        text-align: center;
+      }
+    }
+  }
 }
 
 .skills-row {
-	display: flex;
-	width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 
-	@include phones {
-		justify-content: center;
-		flex-wrap: wrap;
-	}
-}
-
-.skills-row__item {
-	display: block;
-	margin-right: 30px;
-	width: calc(100% / 4 - 30px);
-	position: relative;
-	text-align: center;
-
-	@include phones {
-		width: calc(100% / 2 - 30px);
-	}
-}
-
-.skill-row__title {
-	font-weight: 500;
-	font-size: 13px;
-	color: $dark-green;
-	position: absolute;
-	@include centered();
+  &__item {
+    width: 23%;
+    position: relative;
+    text-align: center;
+    margin-right: 5px;
+    @include phones {
+      width: 30%;
+    }
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 13px;
+    color: $dark-green;
+    position: absolute;
+    @include centered();
+    @include phones {
+      font-size: 12px;
+    }
+  }
 }

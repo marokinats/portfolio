@@ -1,22 +1,29 @@
 .triangle {
-  display: block;
-  width: 100%;
-  height: 150px;
   position: absolute;
-  bottom: 100%; //расположить треугольники сверху
+  width: 50%;
+  bottom: 0;
+  display: block;
+  height: 150px;
 
-  &_fill {
-    &_white {
+  &_left {
+    left: 0;
+  }
+  &_right {
+    right: 0;
+  }
+
+  &__fill {
+    &-white {
       fill: $white;
     }
-    &_beige {
+    &-beige {
       fill: $beige;
     }
   }
-}
 
-.triangle__svg {
-  height: 100%;
-  width: 100%;
-  fill: inherit;
+  &__svg {
+    height: 100%;
+    width: 100%;
+    fill: inherit;
+  }
 }

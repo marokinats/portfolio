@@ -1,196 +1,151 @@
 extends ../_template
 
 block variables
-	- var title = 'Works'
+  - var title = 'Works';
+  -
+    var pages = [
+      { href: "works.html", text: "Мои работы" },
+      { href: "about.html", text: "Обо мне" },
+      { href: "blog.html", text: "Блог" },
+      { href: "index.html", text: "Авторизация" }
+    ];
 
 block content
-	section.section.hero
-		img.hero__bg(src="./assets/img/hero.jpg")
-		.hero__container
-			.hero__socials
-				ul.socials
-					each item in ['vk', 'github', 'in']
-						li.socials__item
-							a(href="#").socials__link
-								svg.socials__icon.socials__icon_hero
-									use(xlink:href=`./assets/img/sprite.svg#${item}`)
-			.hero__burger-menu.burger-menu
-				.burger-menu__close
-					.burger-menu__hamburger
-				.burger-menu__open.hidden Главное меню
-					.burger-menu__open-right
-					.burger-menu__open-left
-					.burger-menu__open-text
-						-
-							var navMain = [
-								{ href: "works.html", text: "Мои работы" },
-								{ href: "about.html", text: "Обо мне" },
-								{ href: "blog.html", text: "Блог" },
-								{ href: "index.html", text: "Авторизация" }
-							];
-						+list("burger-menu", navMain)
-			.hero__title
-				.section-title
-					svg.section-title__pic
-						use(xlink:href="./assets/img/sprite.svg#portfolio_header")
-			.user.hero__user
-				.user__block
-					.user__pic
-						img(src="./assets/img/user1.jpg", alt="me").user__img
-					.user__description
-						.user__name Татьяна Марокина
-						.user__info Личный сайт веб разработчика
-			.arrow-down.hero__arrow-down
-				svg.arrow-down__pic
-					use(xlink:href="./assets/img/sprite.svg#arrow_down")
-	section.section.works
-		//- .wrapper.works_wrapper
-		.works__header
-			.works__left-triangle
-				.triangle.triangle_fill_white
-					svg(viewbox="0 0 1000 150" preserveAspectRatio="none").triangle__svg
-						polygon(points="0,0 0,150 1000,150")
-			.works__right-triangle
-				.triangle.triangle_fill_white
-					svg(viewbox="0 0 1000 150" preserveAspectRatio="none").triangle__svg
-						polygon(points="1000,0 1000,150 0,150")
-			.works__title
-				+block-title('works_header', 'Мои работы')
-		.works__main-contant
-			.works__description
-				+description('Сайт школы онлайн образования', 'HTML, CSS, JAVASCRIPT')
-				+description('Сайт школы йоги', 'HTML, CSS, jQuery')
-				+description('Онлайн магазин диванов', 'HTML, CSS, JAVASCRIPT, PHP')
-				+description('Поезд пассажирский', 'HTML, CSS, PhotoShop')
-				//- .works__desc
-				//- 	.works__desc-title
-				//- 		.block-subtitle Сайт школы онлайн образования
-				//- 	.works__desc-skills HTML, CSS, JAVASCRIPT
-				//- 	.works__desc-btn
-				//- 		a(href="#").works__desc-btn-link
-				//- 			.works__desc-btn-pic
-				//- 				svg.works__desc-btn-icon
-				//- 					use(xlink:href="./assets/img/sprite.svg#link")
-				//- 			span.works__desc-btn-text Посмотреть сайт
-			.works__display
-				.works__display-examples
-					ul.works__display-list
-						- var i = 1
-						- for (var i; i <= 4; i++)
-							if i == 1
-								li.works__display-item.active
-									img(src=`./assets/img/example${i}.png`, alt="example").works__display-img
-							else
-								li.works__display-item
-									img(src=`./assets/img/example${i}.png`, alt="example").works__display-img
-					img(src="./assets/img/example1.png", alt="example").works__display-example-pic.active
-					img(src="./assets/img/example2.png", alt="example").works__display-example-pic
-					img(src="./assets/img/example3.png", alt="example").works__display-example-pic
-					img(src="./assets/img/example4.png", alt="example").works__display-example-pic
-			.works__buttons
-				.slider.slider__first
-					.slider__display
-						ul.slider__list
-							- var i = 1
-							- for (var i; i <= 4; i++)
-									if i == 3
-										li.slider__item.active
-											img(src=`./assets/img/example${i}.png`, alt="example").slider__img
-									else
-										li.slider__item
-											img(src=`./assets/img/example${i}.png`, alt="example").slider__img
-				.slider.slider__opposite
-					.slider__display
-						ul.slider__list
-							- var i = 1
-							- for (var i; i <= 4; i++)
-								if i == 2
-									li.slider__item.active
-										img(src=`./assets/img/example${i}.png`, alt="example").slider__img
-								else
-									li.slider__item
-										img(src=`./assets/img/example${i}.png`, alt="example").slider__img
-				.slider__controls
-					.slider__control.slider__control_down
-						.slider__arrow.arrow-down
-							svg.arrow-down__pic
-								use(xlink:href="./assets/img/sprite.svg#arrow_down")
-					.slider__control.slider__control_up
-						.slider__arrow.arrow-down
-							svg.arrow-down__pic.arrow-down_rotated
-								use(xlink:href="./assets/img/sprite.svg#arrow_down")
-	section.section.reviews
-		.wrapper.reviews__bg
-			img(src="./assets/img/review_bg.png").reviews__bg-img
-			.reviews__container
-				.reviews__title
-					+block-title('about_header', 'Что обо мне говорят')
-				.reviews__content
-					.reviews__feedbacks
-						.reviews__feedback
-							.reviews__feedback-icon
-								img(src="./assets/img/review_quote.png").reviews__feedback-icon-pic
-							.reviews__feedback-pic
-								img(src="./assets/img/review_pic.png").reviews__feedback-avatar
-							.reviews__feedback-text
-								p Эта девушка проходила обучение веб-разработке не где-то, а в LOFTSCHOOL! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-							.reviews__feedback-autor
-								p Ковальчук Дмитрий
-							.reviews__feedback-autor-grade
-								p - основатель LOFTSCHOOL
-						.reviews__feedback
-							.reviews__feedback-icon
-								img(src="./assets/img/review_quote.png").reviews__feedback-icon-pic
-							.reviews__feedback-pic
-								img(src="./assets/img/review_pic.png").reviews__feedback-avatar
-							.reviews__feedback-text
-								p Эта девушка проходила обучение веб-разработке не где-то, а в LOFTSCHOOL! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-							.reviews__feedback-autor
-								p Ковальчук Дмитрий
-							.reviews__feedback-autor-grade
-								p - основатель LOFTSCHOOL
-					.reviews__form
-						.reviews__form-blur
-						form(action="#", method="POST", enctype="multipart/form-data").order-form
-							.order-form__head
-								.order-form__title.block-subtitle Связаться со мной
-							.order-form__list
-								.order-form__item
-									input(type="text", name="username", id="username", placeholder="Имя").order-form__input.order-form__input-text
-								.order-form__item
-									input(type="text", name="user-email", id="user-email", placeholder="Email").order-form__input.order-form__input-text
-								.order-form__item
-									textarea(name="message", id="message", placeholder="Ваше сообщение").order-form__input.order-form__textarea
-							.order-form__buttons
-								.order-form__button
-									input(type="submit", value="Отправить").order-form__submit
-								.order-form__button
-									input(type="reset", value="Очистить").order-form__clear
-				footer.footer
-					.container
-						nav.footer__nav
-							ul.footer__nav-list
-								-
-									var pages = [
-										['works', 'Мои работы'],
-										['about', 'Обо мне'],
-										['blog', 'Блог'],
-										['index', 'Авторизация']
-									];
-								each page in pages
-									li.footer__nav-item
-										a(href=`${page[0]}.html`).footer__nav-link #{page[1]}
-						.footer__socials
-							ul.socials
-								each item in ['vk', 'github', 'in']
-									li.socials__item
-										a(href="#").socials__link
-											svg.socials__icon.socials__icon_footer
-												use(xlink:href=`./assets/img/sprite.svg#${item}`)
-					.footer__copyright
-						p &copy; Марокина Татьяна | Создано с любовью в LOFTSCHOOL 2017
+  section.section.hero
+    img.hero__bg(src="assets/img/hero.jpg")
+    .hero__container
+      .hero__socials
+        +socials()
+      .hero__burger-menu.burger-menu
+        .burger-menu__close
+          .burger-menu__hamburger
+        .burger-menu__open.hidden Главное меню
+          .burger-menu__open-right
+          .burger-menu__open-left
+          .burger-menu__open-text
+            +list("burger-menu", pages)
+      .hero__title
+        .section-title
+          svg.section-title__pic
+            use(xlink:href="assets/img/sprite.svg#portfolio_header")
+      .user.hero__user
+        .user__block
+          .user__pic
+            img(src="assets/img/user1.jpg" alt="me").user__img
+          .user__description
+            .user__name Татьяна Марокина
+            .user__info Личный сайт веб разработчика
+      .arrow-down.hero__arrow-down
+        svg.arrow-down__pic
+          use(xlink:href="assets/img/sprite.svg#arrow_down")
+      .triangle.triangle_left.triangle__fill-white
+        svg(viewbox="0 0 1000 150" preserveAspectRatio="none").triangle__svg
+          polygon(points="0,0 0,150 1000,150")
+      .triangle.triangle_right.triangle__fill-white
+        svg(viewbox="0 0 1000 150" preserveAspectRatio="none").triangle__svg
+          polygon(points="1000,0 1000,150 0,150")
+  section.section.works
+    //- .wrapper.works_wrapper
+    .works__header
+      .works__title
+        +block-title('works_header', 'Мои работы')
+    .works__content
+      .works__left
+        +description('Чат-бот для Университета Синергия', 'HTML, CSS(SCSS), jQuery, PHP', 'https://chatbot.synergy.ru/', 1)
+        +description('Форум устойчивого развития "Общее Будущее"', 'HTML, CSS(SCSS), jQuery, FancyBox3, Slick-Slider', 'https://xn--90aajcaca9d6bb4dg.xn--p1ai/', 2)
+        +description('Админка для API (проект в рамках школы hh.ru)', 'React Js, HTML, CSS(LESS), JavaScript, React-Virtualized', 'http://46.229.212.17/', 3)
+        +description('Лендинг "Бизнес-путешествие на яхтах"', 'HTML, CSS(SCSS), jQuery, FancyBox3, Slick-Slider', 'https://synergyregatta.ru/lp/croatia/', 4)
+      .works__right
+        ul.works__display-list
+          - for (var i = 1; i <= 4; i++)
+            if i == 1
+              li.works__display-item.active(data-id=`${i}`)
+                img(src=`assets/img/example${i}.jpg`, alt="chatbot").works__display-img
+            else
+              li.works__display-item(data-id=`${i}`)
+                img(src=`assets/img/example${i}.jpg`, alt="example").works__display-img
+        .works__buttons.slider
+          ul.slider__list.slider__list_left#slider-left
+            - for (var i = 1; i <= 4; i++)
+              if i == 3
+                li.slider__item.active(data-id=`${i}`)
+                  img(src=`./assets/img/example${i}.jpg`, alt="example").slider__img
+              else
+                li.slider__item(data-id=`${i}`)
+                  img(src=`./assets/img/example${i}.jpg`, alt="example").slider__img
+            .slider__control.slider__control_down
+              .slider__arrow.arrow-down
+                svg.arrow-down__pic
+                  use(xlink:href="assets/img/sprite.svg#arrow_down")
+          ul.slider__list.slider__list_right#slider-right
+            - var i = 1
+            - for (var i; i <= 4; i++)
+              if i == 2
+                li.slider__item.active(data-id=`${i}`)
+                  img(src=`./assets/img/example${i}.jpg`, alt="example").slider__img
+              else
+                li.slider__item(data-id=`${i}`)
+                  img(src=`./assets/img/example${i}.jpg`, alt="example").slider__img
+            .slider__control.slider__control_up
+              .slider__arrow.arrow-down
+                svg.arrow-down__pic.arrow-down_rotated
+                  use(xlink:href="assets/img/sprite.svg#arrow_down")
+  section.section.reviews
+    .wrapper.reviews__bg
+      img(src="assets/img/review_bg.png").reviews__bg-img
+      .reviews__container
+        .reviews__title
+          +block-title('about_header', 'Что обо мне говорят')
+        .reviews__content
+          .reviews__feedbacks
+            .reviews__feedback
+              .reviews__feedback-icon
+                img(src="assets/img/review_quote.png").reviews__feedback-icon-pic
+              .reviews__feedback-pic
+                img(src="assets/img/review_pic.png").reviews__feedback-avatar
+              .reviews__feedback-text
+                p Эта девушка проходила обучение веб-разработке не где-то, а в LOFTSCHOOL! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+              .reviews__feedback-autor
+                p Ковальчук Дмитрий
+              .reviews__feedback-autor-grade
+                p - основатель LOFTSCHOOL
+            .reviews__feedback
+              .reviews__feedback-icon
+                img(src="assets/img/review_quote.png").reviews__feedback-icon-pic
+              .reviews__feedback-pic
+                img(src="assets/img/review_pic2.jpg").reviews__feedback-avatar
+              .reviews__feedback-text
+                p Татьяна, один из лучших сотрудников! Ответсвенная, исполнительная, хорошо показала себя в качестве лидера команды. Приятно было вместе работать
+              .reviews__feedback-autor
+                p Константин Серга
+              .reviews__feedback-autor-grade
+                p - руководитель группы верстки, Синергия
+          .reviews__form
+            .reviews__form-blur
+            form(action="#" method="POST" enctype="multipart/form-data").order-form
+              .order-form__head
+                .order-form__title.block-subtitle Связаться со мной
+              .order-form__list
+                .order-form__item
+                  input(type="text" name="username" id="username" placeholder="Имя").order-form__input.order-form__input-text
+                .order-form__item
+                  input(type="text" name="user-email" id="user-email" placeholder="Email").order-form__input.order-form__input-text
+                .order-form__item
+                  textarea(name="message" id="message" placeholder="Ваше сообщение").order-form__input.order-form__textarea
+              .order-form__buttons
+                .order-form__button
+                  input(type="button" value="Отправить").order-form__submit
+                .order-form__button
+                  input(type="reset" value="Очистить").order-form__clear
+        footer.footer
+          .container
+            +footerNav(pages)
+            .footer__socials
+              +socials(true)
+          .footer__copyright
+            p &copy; Марокина Татьяна | Создано с любовью в LOFTSCHOOL | 2017-2020
 
-	include ./preloader
+  include ./preloader
 
 
 

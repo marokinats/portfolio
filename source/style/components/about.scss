@@ -1,76 +1,48 @@
 .about {
-	@extend %clearfix;
-}
+  @include tablets {
+    &__triangle-right.triangle__fill-white {
+      fill: $beige;
+    }
+  }
+  &__main-contant {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  &__left,
+  &__right {
+    width: 50%;
 
-.about__left-triangle, .about__right-triangle {
-	float: left;
-	width: 50%;
-	position: relative;
-	height: 1px;
-}
-
-.about__left-triangle {
-	background-color: $beige;
-}
-
-.about__right-triangle {
-	background-color: $white;
-	@include tablets {
-		background-color: $beige;
-	}
-}
-
-.about__right-triangle .triangle_fill_white {
-	@include tablets {
-		fill: $beige;
-	}
-}
-
-.about__main-contant {
-	display: flex;
-	width: 100%;
-	flex-wrap: wrap;
-}
-
-.about__left, .about__right {
-	width: 50%;
-
-	@include tablets {
-		width: 100%;
-	}
-}
-
-.about__left {
-	background: $beige;
-	display: flex;
-	flex-direction: column;
-}
-
-.about__left-title {
-	text-align: center;
-}
-
-.about__left-content {
-	display: flex;
-}
-
-.about__right {
-	background: $white;
-	display: flex;
-	flex-direction: column;
-}
-
-.about__right-title {
-	width: 255px;
-	text-align: center;
-	margin: 0 auto;
-	padding: 20px 0 32px;
-}
-
-.about__right-description {
-	margin: 0 40px;
-}
-
-.about__right-content {
-	margin: 0 40px;
+    @include tablets {
+      width: 100%;
+    }
+  }
+  &__left {
+    background: $beige;
+    display: flex;
+    flex-direction: column;
+    &-title {
+      text-align: center;
+    }
+    &-content {
+      display: flex;
+    }
+  }
+  &__right {
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    &-title {
+      width: 255px;
+      text-align: center;
+      margin: 0 auto;
+      padding: 20px 0 32px;
+    }
+    &-description {
+      margin: 0 40px;
+    }
+    &-content {
+      margin: 0 40px;
+    }
+  }
 }

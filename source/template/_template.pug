@@ -1,64 +1,85 @@
 block variables
 
+-
+  var socialsData = [
+    {name:"vk", href:"https://vk.com/tania_matania"},
+    {name: 'github', href: 'https://github.com/marokinats'}, 
+    {name: 'in', href: '#'}
+  ];
+
 mixin block-title(icon, text)
-	.block-title(style=`background-image: url('./assets/img/${icon}.png')`) #{text}
+  .block-title(style=`background-image: url('assets/img/${icon}.png')`) #{text}
 
 mixin grades(name, ...skills)
-		li.skills__item
-			span.skills__item-name= name
-			ul.skills-row
-				each skill in skills
-					li.skills-row__item
-						svg(class="circles", viewBox='0 0 110 110')
-							circle(r="45", cx="50%", cy="50%", fill="none", class="circle__first")
-							circle(r="45", cx="50%", cy="50%",  transform="rotate(-90 55 55)", class="circle__second circle-15")
-						.skill-row__title= skill
+  .skills__item
+    span.skills__item-name= name
+    ul.skills-row
+      each skill in skills
+        li.skills-row__item
+          svg(class="circles" viewBox='0 0 110 110')
+            circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+            circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class=`circle__second circle-${skill.score}`)
+          .skills-row__title= skill.name
 
-mixin description(title, descSkills)
-	.works__desc
-		.works__desc-title
-			.block-subtitle= title 
-		.works__desc-skills= descSkills
-		.works__desc-btn
-			a(href="#").works__desc-btn-link
-				.works__desc-btn-pic
-					svg.works__desc-btn-icon
-						use(xlink:href="./assets/img/sprite.svg#link")
-				span.works__desc-btn-text Посмотреть сайт
+mixin description(title, descSkills, link, i)
+  .works__desc(data-id=`${i}`)
+    .works__desc-title
+      .block-subtitle= title 
+    .works__desc-skills= descSkills
+    a(href=`${link}` target="_blank").works__desc-btn
+      .works__desc-btn-pic
+        svg.works__desc-btn-icon
+          use(xlink:href="assets/img/sprite.svg#link")
+      span.works__desc-btn-text Посмотреть сайт
 
 mixin list(className, array)
-	ul(class=`${className}__list`)
-		each object, index in array
-			- var empty = ""
-			if (index == 0)
-				li(class=`${className}__item ${className}__item_first`)
-					a(href=`${object.href}`, class=`${className}__link block-subtitle`)= object.text
-			else
-				li(class=`${className}__item`) 
-					a(href=`${object.href}`, class=`${className}__link block-subtitle`)= object.text
+  ul(class=`${className}__list`)
+    each object, index in array
+      - var empty = ""
+      if (index == 0)
+        li(class=`${className}__item ${className}__item_first`)
+          a(href=`${object.href}`, class=`${className}__link block-subtitle`)= object.text
+      else
+        li(class=`${className}__item`) 
+          a(href=`${object.href}`, class=`${className}__link block-subtitle`)= object.text
+
+mixin socials(footer= false, items= socialsData)
+  ul.socials
+    each item in items
+      li.socials__item
+        a(href=`${item.href}` target="_blank").socials__link
+          svg(class=footer ? 'socials__icon socials__icon_footer' : 'socials__icon')
+            use(xlink:href=`assets/img/sprite.svg#${item.name}`)
+
+mixin footerNav(pages)
+  nav.footer__nav
+    ul.footer__nav-list
+      each page in pages
+        li.footer__nav-item
+          a(href=`${page.href}`).footer__nav-link #{page.text}
 
 doctype html
 html
-	head
-		meta(charset="utf-8")
-		title #{title}
-		meta(content="" name="author")
-		meta(content="" name="description")
-		meta(content="" name="keywords")
-		meta(content="width=device-width, initial-scale=1" name="viewport")
-		meta(content="ie=edge" http-equiv="x-ua-compatible")
+  head
+    meta(charset="utf-8")
+    title #{title}
+    meta(content="" name="author")
+    meta(content="" name="description")
+    meta(content="" name="keywords")
+    meta(content="width=device-width, initial-scale=1" name="viewport")
+    meta(content="ie=edge" http-equiv="x-ua-compatible")
 
-		//- favicon block start
-		//- favicon block end
+    //- favicon block start
+    //- favicon block end
 
-		link(rel='stylesheet' href='./assets/css/foundation.css')
-		link(rel='stylesheet' href='./assets/css/app.css')
-		script(src='./assets/js/foundation.js' defer)
-		script(src='./assets/js/app.js' defer)
+    link(rel='stylesheet' href='assets/css/foundation.css')
+    link(rel='stylesheet' href='assets/css/app.css')
 
-		<!--[if lt IE 9]>
-		script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
-		<![endif]-->
+  body
+    block content
 
-	body
-		block content
+    script(src='assets/js/foundation.js' defer)
+    <!--[if lt IE 9]>
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" defer)
+    <![endif]-->
+    script(src='assets/js/app.js' defer)

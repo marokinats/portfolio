@@ -1,4 +1,6 @@
 .socials {
+  display: flex;
+  justify-content: center;
   &__item {
     display: inline-block;
     margin-right: 25px;
@@ -17,5 +19,19 @@
     width: 35px;
     height: 20px;
     fill: $true-white;
+    fill-opacity: 0.8;
+    &:hover {
+      fill-opacity: 1;
+      fill: $true-white;
+      transition: 0.3s all;
+    }
+    &_footer {
+      fill-opacity: 0.5;
+      &:hover {
+        fill-opacity: 1;
+        fill: $dark-green;
+        transition: 0.3s all;
+      }
+    }
   }
 }

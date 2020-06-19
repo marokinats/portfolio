@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "homepage": "https://github.com/marokinats/portfolio/",
   "license": "MIT",
+  "scripts": {
+    "dev": "gulp --development",
+    "build": "gulp build --production"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
@@ -17,6 +22,7 @@
     "gulp-csso": "^4.0.1",
     "gulp-eslint": "^6.0.0",
     "gulp-load-plugins": "^2.0.3",
+    "gulp-mode": "^1.0.2",
     "gulp-notify": "^3.2.0",
     "gulp-pug": "^4.0.1",
     "gulp-replace": "^1.0.0",
@@ -25,7 +31,9 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-svgmin": "^2.2.0",
-    "gulp.spritesmith": "^6.11.0"
+    "gulp.spritesmith": "^6.11.0",
+    "webpack": "^4.43.0",
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {
     "jquery": "^3.5.1",

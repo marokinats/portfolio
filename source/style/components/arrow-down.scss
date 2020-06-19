@@ -1,16 +1,14 @@
 .arrow-down {
   width: 30px;
   height: 20px;
-}
-
-.arrow-down_rotated {
-	transform: rotate(180deg);
-}
-
-.arrow-down__pic {
-  display: block;
-  width: 100%;
-  height: 100%;
-  fill: $true-white;
-  opacity: .7;
+  &_rotated {
+    transform: rotate(180deg);
+  }
+  &__pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: $true-white;
+    opacity: 0.7;
+  }
 }

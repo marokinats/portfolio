@@ -1,185 +1,137 @@
 .works {
-	min-height: 100vh;
-	//height: 100%;
+  &__header {
+    background-color: $white;
+  }
+
+  &__title {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  &__content {
+    height: 600px;
+    display: flex;
+    flex-wrap: nowrap;
+    @include tablets {
+      flex-wrap: wrap;
+      height: auto;
+    }
+  }
+
+  &__left {
+    display: flex;
+    width: 50%;
+    background-color: $beige;
+    @include tablets {
+      width: 100%;
+    }
+  }
+
+  &__right {
+    width: 50%;
+    background-color: $dark-beige;
+    display: flex;
+    flex-direction: column;
+    @include tablets {
+      width: 100%;
+    }
+  }
+
+  &__desc {
+    width: 100%;
+    padding: 50px 15px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    @include phones {
+      padding: 30px 15px;
+    }
+    &.active {
+      display: flex;
+    }
+    &-title {
+      width: 100%;
+      max-width: 450px;
+      margin-bottom: 25px;
+    }
+    &-skills {
+      width: 100%;
+      max-width: 450px;
+      font-weight: 500;
+      color: $dark-green;
+      margin-bottom: 60px;
+      text-transform: uppercase;
+      @include tablets {
+        margin-bottom: 30px;
+      }
+    }
+    &-btn {
+      display: inline-block;
+      max-width: 210px;
+      width: 100%;
+      height: 45px;
+      background-color: $dark-green;
+      border-radius: 35px;
+      white-space: nowrap;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      @include phones {
+        height: 35px;
+      }
+      &-pic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+        @include phones {
+          margin-right: 20px;
+        }
+      }
+      &-icon {
+        width: 20px;
+        max-height: 25px;
+        fill: $true-white;
+      }
+      &-text {
+        font-weight: 500;
+        color: $true-white;
+      }
+    }
+  }
+
+  &__display {
+    &-list {
+      align-self: center;
+      flex: 2;
+      max-width: 550px;
+      width: 100%;
+      padding: 50px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include tablets {
+        order: -1;
+      }
+      @include phones {
+        padding: 30px 15px;
+      }
+    }
+    &-item {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+  &__buttons {
+    flex: 1;
+    min-height: 100px;
+    display: flex;
+    position: relative;
+    width: 100%;
+  }
 }
-
-.works_wrapper {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	overflow: visible;
-}
-
-.works__header {
-	//flex: 1;
-	@extend %clearfix;
-}
-
-.works__header {
-	//height: 18%;
-	background-color: $white;
-}
-
-.works__left-triangle, .works__right-triangle {
-	float: left;
-	width: 50%;
-	position: relative;
-	height: 1px;
-}
-
-.works__title {
-	text-align: center;
-	padding-top: 20px;
-}
-
-.works__main-contant {
-	//flex: 1;
-	//height: 85%;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap; //Если высоты не хватает, колонки смещаются вправо
-
-	@include tablets {
-		flex-wrap: nowrap; //Если высоты не хватает, колонки не смещаются вправо
-	}
-}
-
-.works__description {
-	display: flex;
-	height: 100%;
-	width: 50%;
-	background-color: $beige;
-
-	@include tablets {
-		width: 100%;
-	}
-}
-
-.works__desc {
-	display: none;
-	margin: auto;
-	text-align: center;
-}
-
-.works__desc.active {
-	display: block;
-}
-
-.works__desc-title {
-	width: 320px;
-	margin-bottom: 25px;
-
-	@include tablets {
-		margin-top: 30px;
-	}
-}
-
-.works__desc-skills {
-	font-weight: 500;
-	color: $dark-green;
-	margin-bottom: 60px;
-	text-transform: uppercase;
-	text-align: center;
-}
-
-.works__desc-btn {
-	display: inline-block;
-	width: 212px;
-	height: 45px;
-	background-color: $dark-green;
-	border-radius: 35px;
-	white-space: nowrap;
-
-	@include tablets {
-		margin-bottom: 30px;
-	}
-}
-
-.works__desc-btn-link {
-	text-decoration: none;
-	padding: 10px 15px;
-	display: flex;
-	align-items: center;
-}
-
-.works__desc-btn-pic {
-	//выравниваем иконку по центру в блоке
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.works__desc-btn-icon {
-	width: 30px;
-	height: 25px;
-	fill: $true-white;
-	margin-right: 15px;
-}
-
-.works__desc-btn-text {
-	font-weight: 500;
-	color: $true-white;
-}
-
-.works__display {
-	background-color: $dark-beige;
-	width: 50%;
-	flex: 4;
-
-	@include tablets {
-		width: 100%;
-		order: -1;
-	}
-}
-
-.works__display-examples {
-	height: 100%;
-  width: 100%;
-	//max-width: 100%;
-	//max-height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	@include tablets {
-		padding: 30px 0;
-	}
-}
-
-.works__display-list {
-	position: absolute;
-	left: -9999px;
-}
-
-// .works__display-item {
-// 	position: absolute;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   top: 100%;
-
-//   &.active {
-//     top: 0%;
-//   }
-// }
-
-.works__display-example-pic {
-	display: none;
-	max-width: 100%;
-	max-height: 100%;
-}
-
-.works__display-example-pic.active {
-	display: block;
-}
-
-.works__buttons {
-	background-color: $dark-beige;
-	flex: 1;
-	min-height: 100px;
-	height: 100%;
-	display: flex;
-	position: relative;
-}
-

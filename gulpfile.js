@@ -12,14 +12,16 @@ global.$ = {
   gulp: require('gulp'),
   del: require('del'),
   browserSync: require('browser-sync').create(),
-  gp: require('gulp-load-plugins')()
+  webpackStream: require('webpack-stream'),
+  gp: require('gulp-load-plugins')(),
+  mode: require('gulp-mode')()
 };
 
-$.path.task.forEach(function(taskPath) {
+$.path.task.forEach(function (taskPath) {
   require(taskPath)();
 });
 
-$.gulp.task('default', $.gulp.series(
+$.gulp.task('build', $.gulp.series(
   'clean',
   $.gulp.parallel(
     'sass',
@@ -31,7 +33,11 @@ $.gulp.task('default', $.gulp.series(
     'sprite:svg',
     'sprite',
     'copy:fonts'
-  ),
+  )
+));
+
+$.gulp.task('default', $.gulp.series(
+  'build',
   $.gulp.parallel(
     'watch',
     'serve'

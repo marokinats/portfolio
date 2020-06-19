@@ -1,39 +1,33 @@
 .contacts {
-	display: flex;
-	flex-direction: column;
-	max-width: 380px;
-}
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+  &__title {
+    margin-bottom: 30px;
+  }
+  &__item {
+    margin-bottom: 15px;
 
-.contacts__title {
-	margin-bottom: 30px;
-}
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-.contacts__item {
-	margin-bottom: 15px;
-
-	&:last-child {
-		margin-bottom: 0;
-	}
-
-	display: flex;
-	align-items: center;
-}
-
-.contacts__icon {
-	margin-right: 12px;
-	//выравниваем иконку по центру в блоке
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.contacts__icon-pic {
-	width: 25px;
-	height: 25px;
-	fill: $light-green;
-}
-
-.contacts__content {
-	font-weight: 500;
-	color: $light-grey;
+    display: flex;
+    align-items: center;
+  }
+  &__icon {
+    margin-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-pic {
+      width: 25px;
+      height: 25px;
+      fill: $light-green;
+    }
+  }
+  &__content {
+    font-weight: 500;
+    color: $light-grey;
+  }
 }

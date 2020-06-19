@@ -1,27 +1,12 @@
-//Используем flexbox
-
 .wrapper_blog {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	background-color: $white;
-	overflow: visible; //Чтобы было видно треугольники
-}
-
-.blog__triangls {
-	@extend %clearfix;
-}
-
-.blog__left-triangle, .blog__right-triangle {
-	float: left;
-	width: 50%;
-	position: relative;
-	height: 1px;
+	overflow: visible;
 }
 
 .blog__main-content {
-//Контейнер растянется на всю высоту и ширину до следующего элемента
-//Прибиваем footer
 	flex: 1;
 }
 
@@ -31,8 +16,7 @@
 }
 
 .blog__sidebar {
-	// width: 310px;
-	flex: 1; //Задаем размеры
+	flex: 1;
 
 	@include tablets {
 		display: none;
@@ -43,7 +27,6 @@
 	position: relative;
 	top: 0;
 	left: 0;
-	//max-width: 100%;
 }
 
 .blog__nav-item {
@@ -63,13 +46,8 @@
 		@extend %hover-link;
 	}
 }
-
-// .blog__nav-link.active {
-// 	color: $dark-green;
-// }
-
 .blog__articles {
-	flex: 3; //Задаем размеры
+	flex: 3; 
 	padding: 0 100px 0;
 
 	@include tablets {
@@ -82,7 +60,7 @@
 	position: relative;
 	margin-bottom: 140px;
 
-	&:after { //Полоска
+	&:after { 
 		content: "";
 		display: block;
 		width: 100%;

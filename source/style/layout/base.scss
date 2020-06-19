@@ -21,6 +21,9 @@ body {
   font-weight: 400;
   line-height: 1.42;
   -webkit-font-smoothing: antialiased;
+  @include phones {
+    line-height: 1.2;
+  }
 }
 
 .wrapper {
@@ -67,7 +70,9 @@ a:focus {
 }
 
 .container {
-  width: 380px;
+  max-width: 380px;
+  width: 100%;
+  padding: 0 15px;
   margin: 0 auto;
 }
 

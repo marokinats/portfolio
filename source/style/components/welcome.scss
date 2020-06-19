@@ -64,13 +64,6 @@
   &__socials {
     text-align: center;
     margin-bottom: auto;
-    .socials__icon {
-      fill-opacity: 0.5;
-
-      &:hover {
-        @extend %hover-svg-green;
-      }
-    }
   }
 
   &__buttons {

@@ -7,12 +7,14 @@
 }
 
 %hover-svg-green {
+  fill-opacity: 1;
 	fill: $dark-green;
 	transition: .3s all;
 }
 
 %hover-svg-white {
-	fill-opacity: 1;
+  fill-opacity: 1;
+  fill: $true-white;
 	transition: .3s all;
 }
 
@@ -46,7 +48,7 @@
 
 //media
 @mixin laptop() {
-	@media screen and (max-width: 992px) {
+	@media screen and (max-width: 1199px) {
 		@content;
 	}
 }

@@ -1,41 +1,30 @@
 extends ../_template
 
 block variables
-  - var title = 'Welcome'
+  - var title = 'Welcome';
+  -
+    var buttons = [
+      ['Мои работы', 'works'],
+      ['Обо мне', 'about'],
+      ['Блог', 'blog']
+    ]
 
 block content
   section.section.welcome
     .welcome__container
       .welcome__authorization
-        button(type="button" onclick="flip()").welcome__authorization-btn Авторизоваться
+        button(type="button").welcome__authorization-btn Авторизоваться
       .flip
         .welcome__content.flip__id#flip-user
           .welcome__user.user
             .user__pic.welcome__user-pic
-              img(src="./assets/img/user1.jpg" alt="me").user__img
+              img(src="assets/img/user1.jpg" alt="me").user__img
             .welcome__user-description
               .user__name.welcome__user-name Татьяна Марокина
               .user__info.welcome__user-info Личный сайт веб разработчика
           .welcome__socials
-            ul.socials
-              -
-                var socials = [
-                  {name:"vk", href:"https://vk.com/tania_matania"},
-                  {name: 'github', href: 'https://github.com/marokinats'}, 
-                  {name: 'in', href: '#'}
-                ]
-              each item in socials
-                li.socials__item
-                  a(href=`${item.href}` target="_blank").socials__link
-                    svg(class=`socials__icon socials__icon_${item.name}`)
-                      use(xlink:href=`./assets/img/sprite.svg#${item.name}`)
+            +socials()
           .welcome__buttons
-            -
-              var buttons = [
-                ['Мои работы', 'works'],
-                ['Обо мне', 'about'],
-                ['Блог', 'blog']
-              ]
             each btn in buttons
               a(href=`${btn[1]}.html`).welcome__button #{btn[0]}
         .welcome__content.flip__id.flipped#flip-auth
@@ -48,18 +37,18 @@ block content
                     input(type="text" name="login" id="login" placeholder="Логин").authorization__form-input
                     .authorization__form-input-logo
                       svg.authorization__form-input-icon
-                        use(xlink:href='./assets/img/sprite.svg#login')
+                        use(xlink:href='assets/img/sprite.svg#login')
                   .authorization__form-item
                     input(type="password" name="password" id="password" placeholder="Пароль").authorization__form-input
                     .authorization__form-input-logo
                       svg.authorization__form-input-icon
-                        use(xlink:href='./assets/img/sprite.svg#password')
+                        use(xlink:href='assets/img/sprite.svg#password')
                 .authorization__form-check
                   label(for="checkbtn").authorization__form-check-label
                     input(type="checkbox" name="checkbtn" id="checkbtn").authorization__form-check-btn
                     .authorization__form-check-fake
                       svg.authorization__form-check-fake-icon
-                        use(xlink:href='./assets/img/sprite.svg#check')
+                        use(xlink:href='assets/img/sprite.svg#check')
                     | Я человек
                 .authorization__form-question
                   span.authorization__form-question-text Вы точно не робот?
@@ -72,8 +61,8 @@ block content
                     .authorization__form-radio-fake
                     | Не уверен
               .authorization__buttons
-                button(type="button" onclick="flip()").authorization__button.authorization__button_return На главную
-                button(type="submit").authorization__button.authorization__button_submit Войти
+                button(type="button").authorization__button.authorization__button_return На главную
+                button(type="button").authorization__button.authorization__button_submit Войти
       .welcome__copyright
         span &copy; Марокина Татьяна 
         span | Создано с любовью в LOFTSCHOOL | 2017-2020
